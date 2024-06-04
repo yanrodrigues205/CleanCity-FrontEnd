@@ -73,7 +73,7 @@
   <script>
     async function fazerCadastro() {
       let idBotaoCadastro = document.getElementById('submit');
-
+      idBotaoCadastro.disabled = true;
       let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
       <span role="status">Carregando...</span>`;
       
@@ -82,7 +82,7 @@
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       idBotaoCadastro.innerHTML = 'Fazer cadastro';
-      
+      idBotaoCadastro.disabled = false;
       window.location.href = "login.html";
     }
   </script>

@@ -59,7 +59,7 @@
   <script>
     async function fazerLogin() {
       let idBotaoLogin = document.getElementById('submit');
-
+      idBotaoLogin.disabled = true;
       let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
       <span role="status">Carregando...</span>`;
 
@@ -68,7 +68,7 @@
       await new Promise(resolve => setTimeout(resolve, 1500));
 
       idBotaoLogin.innerHTML = 'Fazer login';
-
+      idBotaoLogin.disabled = false;
       window.location.href = "home.html";
     }
   </script>

@@ -13,7 +13,7 @@
   <header class="bg-dark">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="home.html">
+        <a class="navbar-brand" href="#">
           <i class="fa-solid fa-recycle" style="color: #26aa00;"></i> Recicla Aqui
         </a>
 
@@ -28,10 +28,6 @@
                 Perfil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="pontos_coleta_usuario.html"><i class="fa-solid fa-industry"></i>
-                Pontos de coleta do usuario</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link text-white" href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Encerrar
                 sessão</a>
             </li>
@@ -42,26 +38,7 @@
     </nav>
   </header>
   <div class="container" style="max-width: 50%; margin-top: 100px;">
-    <h3>Perfil</h3>
-
-    <div class="mb-3">
-      <label for="nome">Seu nome:</label>
-      <input type="text" class="form-control" id="nome" placeholder="Seu nome">
-    </div>
-
-    <div class="mb-3">
-      <label for="email">Seu e-mail:</label>
-      <input type="email" class="form-control" id="email" placeholder="Seu e-mail">
-    </div>
-    <div class="mb-3">
-      <button type="submit" class="btn btn-success" id="submitPerfil" onclick="atualizarPerfil()">Atualizar
-        perfil</button>
-    </div>
-    <div class="mb-3">
-      <a href="usuario_coleta.html">Deseja se tornar um usuário coleta? entre aqui!</a>
-    </div>
-
-    <h3>Dados de usuário coleta</h3>
+    <h3>Cadastrar dados do usuário coleta</h3>
     <div class="mb-3">
       <label for="cpfCNPJ">Seu CPF/CNPJ:</label>
       <input type="text" class="form-control" id="cpfCNPJ" placeholder="Seu CPF/CNPJ:">
@@ -74,36 +51,23 @@
       <label for="descricao">Seu descrição:</label>
       <input type="text" class="form-control" id="descricao" placeholder="Sua descrição:">
     </div>
-    <button type="submit" class="btn btn-success" id="submitPerfilColeta" onclick="atualizarPerfilColeta()">Atualizar
-      perfil de coleta</button>
+    <button type="submit" class="btn btn-success" id="submitPerfilColeta" onclick="cadastrarUsuarioColeta()">Cadastrar
+      usuário coleta</button>
   </div>
   <script>
-    async function atualizarPerfil() {
-      let idBotaoAtualizar = document.getElementById('submitPerfil');
-      idBotaoAtualizar.disabled = true;
+    async function cadastrarUsuarioColeta() {
+      console.log("ok");
+      let idBotaoCadastrar = document.getElementById('submitPerfilColeta');
+      idBotaoCadastrar.disabled = true;
       let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
           <span role="status">Atualizando...</span>`;
 
-      idBotaoAtualizar.innerHTML = corpo;
+      idBotaoCadastrar.innerHTML = corpo;
 
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      idBotaoAtualizar.innerHTML = 'Atualizar conta';
-      idBotaoAtualizar.disabled = false;
-      window.location.href = "perfil.html";
-    }
-    async function atualizarPerfilColeta() {
-      let idBotaoAtualizar = document.getElementById('submitPerfilColeta');
-      idBotaoAtualizar.disabled = true;
-      let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-          <span role="status">Atualizando...</span>`;
-
-      idBotaoAtualizar.innerHTML = corpo;
-
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
-      idBotaoAtualizar.innerHTML = 'Atualizar conta';
-      idBotaoAtualizar.disabled = false;
+      idBotaoCadastrar.innerHTML = 'Atualizar conta';
+      idBotaoCadastrar.disabled = false;
       window.location.href = "perfil.html";
     }
   </script>
