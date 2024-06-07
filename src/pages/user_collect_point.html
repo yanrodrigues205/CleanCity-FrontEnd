@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pontos de coleta - Recicla Aqui</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <script src="../assets/js/bootstrap.js"></script>
+</head>
+
+<body>
+  <header class="bg-dark">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+          <i class="fa-solid fa-recycle" style="color: #26aa00;"></i> Recicla Aqui
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="profile.html"><i class="fa-solid fa-user"></i>
+                Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="user_collect_point.html"><i class="fa-solid fa-industry"></i>
+                Pontos de coleta do usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Encerrar
+                sessão</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <div class="modal fade" id="insert_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar novo ponto de coleta</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="name_cp" class="col-form-label">Nome</label>
+            <input type="text" class="form-control" id="name_cp">
+          </div>
+
+          <div class="mb-3">
+            <label for="description_cp" class="col-form-label">Descrição</label>
+            <textarea class="form-control" id="description_cp"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Horário de trabalho antes do meio-dia</label><br>
+            <input type="time" required> às <input type="time" required>
+            <label for="recipient-name" class="col-form-label">Horário de trabalho depois do meio-dia</label><br>
+            <input type="time" required> às <input type="time" required>
+          </div>
+          <div class="mb-3">
+            <label for="materiais">Escolha os materiais recicláveis:</label><br>
+            <select id="materiais" name="materiais[]" class="form-select" multiple aria-label="multiple select example">
+              <option value="papel">Papel e papelão</option>
+              <option value="plastico">Plástico</option>
+              <option value="vidro">Vidro</option>
+              <option value="metal">Metal</option>
+              <option value="tecido">Tecido</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" onclick="insertPoint()" data-bs-dismiss="modal"
+            class="btn btn-primary">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modals -->
+  <div class="modal fade" id="show_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Alerta do sistema</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 class="card-title">Smart Reciclagem</h5>
+          <p class="card-text">Ponto de coleta destinado as pessoas com necessidade de agilidade e automação,
+            basta fazer o cadastro no aplicativo e sucesso!</p>
+          <p class="card-text"><i class="fa-solid fa-location-dot"></i> Rua Francisca Rodrigues Becegato, 80.
+            Presidente Prudente - SP</p>
+          <p class="card-text"><i class="fa-solid fa-recycle"></i> Papelão, Ferro, Alumínio, Cobre ...</p>
+          <p class="card-text"><i class="fa-solid fa-clock"></i> 8:00 as 15:00</p>
+          <p class="card-text"> Avaliações</p>
+          <p class="card-text"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 3,6</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="update_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Alerta do sistema</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="id_cp" class="col-form-label">Código</label>
+            <input type="text" class="form-control" id="id_cp" readonly>
+          </div>
+
+          <div class="mb-3">
+            <label for="name_cp" class="col-form-label">Nome</label>
+            <input type="text" class="form-control" id="name_cp">
+          </div>
+
+          <div class="mb-3">
+            <label for="description_cp" class="col-form-label">Descrição</label>
+            <textarea class="form-control" id="description_cp"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Horário de trabalho antes do meio-dia</label><br>
+            <input type="time" required> às <input type="time" required>
+            <label for="recipient-name" class="col-form-label">Horário de trabalho depois do meio-dia</label><br>
+            <input type="time" required> às <input type="time" required>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-success" onclick="updatePoint()">Atualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="delete_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Alerta do sistema</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja deletar o ponto de coleta de (#12 - Name)
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-danger" onclick="deletePoint()">Deletar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- END Modals -->
+  <div class="container" style="max-width: 95%; margin-top: 100px;">
+    <div class="container">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+              <div class="card-header">Total de Avaliações em todos os pontos de coleta</div>
+              <div class="card-body">
+                <h5 class="card-title"><i class="fa-solid fa-star"></i> Avaliações</h5>
+                <p class="card-text">321</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-success mb-3" style="max-width: 18rem;">
+              <div class="card-header">Quantidade de Pontos de Coleta Ativos</div>
+              <div class="card-body">
+                <h5 class="card-title"><i class="fa-solid fa-recycle"></i> Pontos de Coleta</h5>
+                <p class="card-text">5</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+              <div class="card-header">Quantidade de Resíduos de Coleta Ativos</div>
+              <div class="card-body">
+                <h5 class="card-title"><i class="fa-solid fa-trash"></i> Resíduos</h5>
+                <p class="card-text">21</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button style="margin: 30px;" type="button" class="btn btn-primary" data-bs-toggle="modal"
+      data-bs-target="#insert_modal">
+      <i class="fa-solid fa-plus"></i> Novo ponto de coleta
+    </button>
+    <table id="table" class="table table-striped" style="width:100%">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Horas de Trabalho</th>
+          <th>Avaliações</th>
+          <th>Operações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Galpao XD</td>
+          <td>Ferro e vidro</td>
+          <td>06:00 as 12:00 & 13:00 as 18:00</td>
+          <td><a href="collect_point.html">Avaliações</a></td>
+          <td>
+            <button type="button" data-id="" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#show_modal"><i class="fa-solid fa-eye"></i></button>
+            <button type="button" data-id="" class="btn btn-success" data-bs-toggle="modal"
+              data-bs-target="#update_modal"><i class="fa-solid fa-pencil"></i></button>
+            <button type="button" data-id="" class="btn btn-danger" data-bs-toggle="modal"
+              data-bs-target="#delete_modal"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+</body>
+
+</html>

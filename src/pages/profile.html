@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - Recicla Aqui</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <script src="../assets/js/bootstrap.js"></script>
+</head>
+
+<body>
+  <header class="bg-dark">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+          <i class="fa-solid fa-recycle" style="color: #26aa00;"></i> Recicla Aqui
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="profile.html"><i class="fa-solid fa-user"></i>
+                Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="user_collect_point.html"><i class="fa-solid fa-industry"></i>
+                Pontos de coleta do usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Encerrar
+                sessão</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container" style="max-width: 50%; margin-top: 100px;">
+    <h3>Perfil</h3>
+
+    <div class="mb-3">
+      <label for="nome">Seu nome:</label>
+      <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+    </div>
+
+    <div class="mb-3">
+      <label for="email">Seu e-mail:</label>
+      <input type="email" class="form-control" id="email" placeholder="Seu e-mail">
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#update_profile">Atualizar
+        perfil</button>
+    </div>
+    <div class="mb-3">
+      <a href="collect_user.html">Deseja se tornar um usuário coleta? entre aqui!</a> 
+    </div>
+
+    <h3>Dados de usuário coleta</h3>
+    <div class="mb-3">
+      <label for="cpfCNPJ">Seu CPF/CNPJ:</label>
+      <input type="text" class="form-control" id="cpfCNPJ" placeholder="Seu CPF/CNPJ:">
+    </div>
+    <div class="mb-3">
+      <label for="telefone">Seu telefone:</label>
+      <input type="tel" class="form-control" id="telefone" placeholder="Seu telefone:">
+    </div>
+    <div class="mb-3">
+      <label for="descricao">Seu descrição:</label>
+      <input type="text" class="form-control" id="descricao" placeholder="Sua descrição:">
+    </div>
+    <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateCollectorProfile">Atualizar
+      perfil de coleta</button>
+  </div>
+
+  <div class="modal fade" id="update_profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Alerta de confirmação</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja atualizar os dados do seu perfil?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-primary" onclick="updateProfile()" id="submitPerfil">Atualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateCollectorProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Alerta de confirmação</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja atualizar os dados do seu perfil de coleta?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+          <button type="button" class="btn btn-primary" onclick="updateCollectorProfile()" id="submitPerfilColeta">Atualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function updateProfile() {
+      let idBotaoAtualizar = document.getElementById('submitPerfil');
+      idBotaoAtualizar.disabled = true;
+      let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+          <span role="status">Atualizando...</span>`;
+
+      idBotaoAtualizar.innerHTML = corpo;
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      idBotaoAtualizar.innerHTML = 'Atualizar conta';
+      idBotaoAtualizar.disabled = false;
+      window.location.href = "profile.html";
+    }
+    async function updateCollectorProfile() {
+      let idBotaoAtualizar = document.getElementById('submitPerfilColeta');
+      idBotaoAtualizar.disabled = true;
+      let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+          <span role="status">Atualizando...</span>`;
+
+      idBotaoAtualizar.innerHTML = corpo;
+
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      idBotaoAtualizar.innerHTML = 'Atualizar conta';
+      idBotaoAtualizar.disabled = false;
+      window.location.href = "profile.html";
+    }
+  </script>
+</body>
+
+</html>
