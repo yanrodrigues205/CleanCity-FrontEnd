@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastrar - Recicla Aqui</title>
+  <title>Sign up - CleanCity</title>
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
   <script src="../assets/js/bootstrap.js"></script>
 </head>
@@ -15,7 +15,8 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <i class="fa-solid fa-recycle" style="color: #26aa00;"></i> Recicla Aqui
+          <i class="fa-solid fa-recycle" style="color: #26aa00;"></i>
+          CleanCity
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +25,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-white" href="login.html"><i class="fa-solid fa-user"></i> Entrar</a>
+              <a class="nav-link text-white" href="login.html">
+                <i class="fa-solid fa-user"></i>
+                Sign in
+              </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white" href="register.html"><i class="fas fa-sign-in"></i> Cadastrar-se</a>
+              <a class="nav-link text-white" href="register.html">
+                <i class="fas fa-sign-in"></i>
+                Sign up
+              </a>
             </li>
           </ul>
         </div>
@@ -37,52 +44,66 @@
   </header>
 
   <div class="container" style="max-width: 50%; margin-top: 100px;">
-    <h3>Cadastro</h3>
+    <h3>Sign Up</h3>
 
     <div class="mb-3">
-      <label for="nome">Seu nome:</label>
-      <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+      <label for="name">Enter your name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter your name">
     </div>
 
     <div class="mb-3">
-      <label for="email">Seu e-mail:</label>
-      <input type="email" class="form-control" id="email" placeholder="Seu e-mail">
+      <label for="email">Enter your e-mail:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter your e-mail">
     </div>
 
     <div class="mb-3">
-      <label for="senha">Sua senha:</label>
-      <input type="password" class="form-control" id="senha" placeholder="Sua senha">
+      <label for="password">Enter your password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter your senha">
     </div>
 
     <div class="mb-3">
-      <label for="senha_confirmacao">Sua senha novamente:</label>
-      <input type="password" class="form-control" id="senha_confirmacao" placeholder="Sua senha novamente">
+      <label for="confirm-password">Enter your password again:</label>
+      <input type="password" class="form-control" id="confirm-password" placeholder="Enter your password again">
     </div>
 
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="termos">
-      <label class="form-check-label" for="termos">Concordo com os termos e serviços da plataforma.</label>
+      <input type="checkbox" class="form-check-input" id="agree">
+      <label class="form-check-label" for="agree">I agree to the platform's terms and services.</label>
     </div>
 
     <div class="mb-3">
-      <a href="login.html">Já tem uma conta? entre aqui!</a>
+      <a href="login.html">Already have an account? Sign in here!</a>
     </div>
-    <button type="submit" class="btn btn-success " id="submit" onclick="fazerCadastro()">Fazer cadastro</button>
+    <button type="submit" class="btn btn-success " id="submit" onclick="doSignUp()">Sign Up</button>
   </div>
-
   <script>
-    async function fazerCadastro() {
-      let idBotaoCadastro = document.getElementById('submit');
-      idBotaoCadastro.disabled = true;
-      let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-      <span role="status">Carregando...</span>`;
-      
-      idBotaoCadastro.innerHTML = corpo;
+    async function doSignUp() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const agreeCheck = document.getElementById('agree').checked;
+
+      const jsonBody = JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+        agree: agreeCheck
+      })
+
+      const doSignUp = document.getElementById('submit');
+
+      doSignUp.disabled = true;
+
+      doSignUp.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <span role="status">Loading...</span>`;
 
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      idBotaoCadastro.innerHTML = 'Fazer cadastro';
-      idBotaoCadastro.disabled = false;
+
+      doSignUp.innerHTML = 'Sign up';
+
+      doSignUp.disabled = false;
+
       window.location.href = "login.html";
     }
   </script>

@@ -2,102 +2,105 @@
 <html lang="en" data-bs-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - Recicla Aqui</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
-    <script src="../assets/js/bootstrap.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - CleanCity</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <script src="../assets/js/bootstrap.js"></script>
 </head>
 
 <body>
-    <header class="bg-dark">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <i class="fa-solid fa-recycle" style="color: #26aa00;"></i> Recicla Aqui
-                </a>
+  <header class="bg-dark">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-recycle" style="color: #26aa00;"></i>CleanCity</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="profile.html"><i class="fa-solid fa-user"></i>
-                                Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="user_collect_point.html"><i class="fa-solid fa-industry"></i>
-                              Pontos de coleta do usuario</a>
-                          </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="login.html"><i
-                                    class="fa-solid fa-right-from-bracket"></i> Encerrar
-                                sessão</a>
-                        </li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="profile.html">
+                <i class="fa-solid fa-user"></i>
+                Profile
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="user_collect_point.html">
+                <i class="fa-solid fa-industry"></i>
+                User Collection Point
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="login.html">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container" style="max-width: 85%; margin-top: 100px;">
+    <h3>Collect Point</h3>
+    <table id="table" class="table table-striped" style="width:100%">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Galpao XD</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Reviews</h3>
+    <table id="example" class="table table-striped" style="width:100%">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>User</th>
+          <th>Description</th>
+          <th>Review note</th>
+        </tr>
+      </thead>
+      <tbody>
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container" style="max-width: 85%; margin-top: 100px;">
-        <h3>Ponto de coleta</h3>
-        <table id="table" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nome</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Galpao XD</td>
-                </tr>
-            </tbody>
-        </table>
-        <h3>Avaliações</h3>
-        <table id="example" class="table table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Usuário</th>
-                    <th>Descrição</th>
-                    <th>Nota</th>
-                </tr>
-            </thead>
-            <tbody>
-               
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Código</th>
-                    <th>Usuário</th>
-                    <th>Descrição</th>
-                    <th>Nota</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
-    <script>
-        const data = new DataTable("#example");
-        for(let i=0;i<20;i++){
-            data.row.add([
-                i,
-                `${i} Root`,
-                `Muito bom.`,
-                Math.floor(Math.random() * 6)
-            ]).draw();
-        }
-    </script>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Code</th>
+          <th>User</th>
+          <th>Description</th>
+          <th>Review note</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
+  <script>
+    const data = new DataTable("#example");
+    for (let i = 0; i < 20; i++) {
+      data.row.add([
+        i,
+        `${i} Root`,
+        `Muito bom.`,
+        Math.floor(Math.random() * 6)
+      ]).draw();
+    }
+  </script>
 </body>
 
 </html>

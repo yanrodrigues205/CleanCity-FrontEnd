@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Recicla Aqui</title>
+  <title>Login - CleanCity</title>
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
   <script src="../assets/js/bootstrap.js"></script>
 </head>
@@ -15,7 +15,8 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="">
-          <i class="fa-solid fa-recycle" style="color: #26aa00;"></i> Recicla Aqui
+          <i class="fa-solid fa-recycle" style="color: #26aa00;"></i>
+          CleanCity
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +25,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-white" href="login.html"><i class="fa-solid fa-user"></i> Entrar</a>
+              <a class="nav-link text-white" href="login.html">
+                <i class="fa-solid fa-user"></i>
+                Sign in
+              </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white" href="register.html"><i class="fas fa-sign-in"></i> Cadastrar-se</a>
+              <a class="nav-link text-white" href="register.html">
+                <i class="fas fa-sign-in"></i>
+                Sign up
+              </a>
             </li>
           </ul>
         </div>
@@ -40,35 +47,45 @@
     <h3>Login</h3>
 
     <div class="mb-3">
-      <label for="email">Seu e-mail:</label>
-      <input type="email" class="form-control" id="email" placeholder="Seu e-mail">
+      <label for="email">Enter your e-mail:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter your e-mail">
     </div>
 
     <div class="mb-3">
-      <label for="senha">Sua senha:</label>
-      <input type="password" class="form-control" id="senha" placeholder="Sua senha">
+      <label for="password">Enter your password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter your password">
     </div>
 
     <div class="mb-3">
-      <a href="register.html">Não tem uma conta? crie uma!</a>
+      <a href="register.html">Don't hava an account? Sign up here!</a>
     </div>
 
-    <button type="submit" class="btn btn-success" id="submit" onclick="fazerLogin()">Fazer login</button>
+    <button type="submit" class="btn btn-success" id="submit" onclick="doLogin()">Sign in</button>
   </div>
-  
-  <script>
-    async function fazerLogin() {
-      let idBotaoLogin = document.getElementById('submit');
-      idBotaoLogin.disabled = true;
-      let corpo = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-      <span role="status">Carregando...</span>`;
 
-      idBotaoLogin.innerHTML = corpo;
+  <script>
+    async function doLogin() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const jsonBody = JSON.stringify({
+        email: email,
+        password: password
+      })
+
+      const doLoginButton = document.getElementById('submit');
+
+      doLoginButton.disabled = true;
+
+      doLoginButton.innerHTML = `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <span role="status">Loading...</span>`;
 
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      idBotaoLogin.innerHTML = 'Fazer login';
-      idBotaoLogin.disabled = false;
+      doLoginButton.innerHTML = 'Fazer login';
+
+      doLoginButton.disabled = false;
+
       window.location.href = "home.html";
     }
   </script>
