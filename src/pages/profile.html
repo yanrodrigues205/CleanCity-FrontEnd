@@ -1,51 +1,73 @@
 <!DOCTYPE html>
-<html  lang="pt-br" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body class="bg-dark">
-    <div class="container rounded mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Yan & Matheus</span><span class="">email_fake@mail.com</span><span> </span></div>
-            </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Perfil</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" placeholder="Digite seu nome" value=""></div>
-                        <div class="col-md-6"><label class="labels">Sobrenome</label><input type="text" class="form-control" value="" placeholder="Digite o Sobrenome"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Digite seu endereço de e-mail" value=""></div>
-                        <div class="col-md-12"><label class="labels">Senha</label><input type="text" class="form-control" placeholder="Digite sua senha" value=""></div>
-                        <div class="col-md-12"><label class="labels">Conta Criada em </label><input type="datetime-local" class="form-control" placeholder="" value="06/10/2024 12:34:18"></div>
-                        <div class="col-md-12"><label class="labels">Atualizada em </label><input type="datetime-local" class="form-control" placeholder="" value="06/10/2024 12:34:18"></div>
-                    </div>
+<html lang="pt-br" data-bs-theme="dark">
 
-                    <div class="mt-5 text-center"><a class="btn btn-danger profile-button" href="./dashboard.html"><i class="fa-solid fa-arrow-left"></i></a>&nbsp;<button class="btn btn-primary profile-button" type="button">Salvar</button></div>
-                </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <script src="../assets/js/bootstrap.js"></script>
+
+</head>
+
+<body class="bg-dark">
+  <div class="container rounded mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+            width="150px"
+            src="../assets/images/profile.jpg"><span
+            class="font-weight-bold">Yan & Matheus</span><span class="">email_fake@mail.com</span><span>
+          </span></div>
+      </div>
+      <div class="col-md-5 border-right">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right">Perfil</h4>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control"
+                placeholder="Digite seu nome" value=""></div>
+            <div class="col-md-6"><label class="labels">Sobrenome</label><input type="text" class="form-control"
+                value="" placeholder="Digite o Sobrenome"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control"
+                placeholder="Digite seu endereço de e-mail" value=""></div>
+            <div class="col-md-12"><label class="labels">Senha</label><input type="text" class="form-control"
+                placeholder="Digite sua senha" value=""></div>
+            <div class="col-md-12"><label class="labels">Conta Criada em </label><input type="datetime-local"
+                class="form-control" placeholder="" value="06/10/2024 12:34:18">
             </div>
-            <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Perfil de Coleta</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Ponto de Coleta</span></div><br>
-                    <div class="col-md-12"><label class="labels">Nome de Perfil de Coleta</label><input type="text" class="form-control" placeholder="Digite o nome do perfil de coleta" value=""></div>
-                    <div class="col-md-12"><label class="labels">CPF ou CNPJ</label><input type="text" class="form-control" placeholder="Digite o CPF ou CNPJ" value=""></div> 
-                    <div class="col-md-12"><label class="labels">Telefone</label><input type="text" class="form-control" placeholder="(018) 99672-8910" value=""></div>
-                    <div class="col-md-12"><label class="labels">Descrição</label><textarea type="text" class="form-control" placeholder="Digite a descrição do seu ponto de coleta" value=""></textarea></div>
-                    <br>
-                </div>
-            </div>
+            <div class="col-md-12"><label class="labels">Atualizada em </label><input type="datetime-local"
+                class="form-control" placeholder="" value="06/10/2024 12:34:18"></div>
+          </div>
+
+          <div class="mt-5 text-center"><a class="btn btn-danger profile-button" href="./dashboard.html"><i
+                class="fa-solid fa-arrow-left"></i></a>&nbsp;<button class="btn btn-primary profile-button"
+              type="button">Salvar</button></div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <div class="p-3 py-5">
+          <div class="d-flex justify-content-between align-items-center experience"><span>Perfil de
+              Coleta</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Ponto de
+              Coleta</span></div><br>
+          <div class="col-md-12"><label class="labels">Nome de Perfil de Coleta</label><input type="text"
+              class="form-control" placeholder="Digite o nome do perfil de coleta" value=""></div>
+          <div class="col-md-12"><label class="labels">CPF ou CNPJ</label><input type="text" class="form-control"
+              placeholder="Digite o CPF ou CNPJ" value=""></div>
+          <div class="col-md-12"><label class="labels">Telefone</label><input type="text" class="form-control"
+              placeholder="(018) 99672-8910" value=""></div>
+          <div class="col-md-12"><label class="labels">Descrição</label><textarea type="text" class="form-control"
+              placeholder="Digite a descrição do seu ponto de coleta" value=""></textarea></div>
+          <br>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
+  </div>
+  </div>
+  </div>
 </body>
+
 </html>
